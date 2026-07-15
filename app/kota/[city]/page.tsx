@@ -24,11 +24,20 @@ export function generateMetadata({ params }: Props): Metadata {
   };
 }
 
+function encodeMessage(cityName: string, serviceName: string): string {
+  return encodeURIComponent(
+    `Halo Sekawan ${cityName}, Saya tertarik dengan jasa ${serviceName} dan ingin tau info lebih lanjut.`
+  );
+}
+
 export default function CityPage({ params }: Props) {
   const city = cities.find((c) => c.slug === params.city);
   if (!city) notFound();
 
-  const waLink = `https://wa.me/6281234567890?text=Halo%2C%20saya%20mau%20booking%20layanan%20di%20${city.name}...`;
+  const waNumber = city.whatsapp;
+  const cityServices = services.filter(
+    (s) => city.availableServices.includes(s.id)
+  );
 
   return (
     <div className="pt-24 pb-16">
@@ -61,7 +70,7 @@ export default function CityPage({ params }: Props) {
 
         {/* Available services */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-12">
-          {services.slice(0, 9).map((service, i) => (
+          {cityServices.map((service, i) => (
             <ScrollReveal key={service.id} delay={i * 80}>
               <div className="p-5 rounded-2xl border border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900 hover:border-brand-gold/30 transition-all">
                 <span className="text-3xl block mb-3">{service.icon}</span>
@@ -108,7 +117,7 @@ export default function CityPage({ params }: Props) {
         <ScrollReveal delay={500}>
           <div className="text-center">
             <a
-              href={waLink}
+              href={`https://wa.me/${waNumber}?text=${encodeMessage(city.name, 'anda')}`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-green-500 text-white font-bold text-lg hover:bg-green-600 transition-all hover:-translate-y-0.5 shadow-xl shadow-green-500/20"

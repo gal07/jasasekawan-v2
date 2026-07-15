@@ -11,19 +11,75 @@ export const siteConfig = {
     tiktok: 'https://tiktok.com/@jasasekawan',
     instagram: 'https://www.instagram.com/jasasekawan/',
   },
-  whatsapp: '6281234567890',
+  whatsapp: '6285710021668',
   company: 'PT. Sekawan Adhya Corporindo',
 };
 
-export const cities = [
-  { name: 'Malang', slug: 'malang', image: '/images/cities/malang.jpg' },
-  { name: 'Surabaya', slug: 'surabaya', image: '/images/cities/surabaya.jpg' },
-  { name: 'Sidoarjo', slug: 'sidoarjo', image: '/images/cities/sidoarjo.jpg' },
-  { name: 'Jogja', slug: 'jogja', image: '/images/cities/jogja.jpg' },
-  { name: 'Solo', slug: 'solo', image: '/images/cities/solo.jpg' },
-  { name: 'Depok', slug: 'depok', image: '/images/cities/depok.jpg' },
-  { name: 'Bali', slug: 'bali', image: '/images/cities/bali.jpg' },
-  { name: 'Purwokerto', slug: 'purwokerto', image: '/images/cities/purwokerto.jpg' },
+export interface City {
+  name: string;
+  slug: string;
+  image: string;
+  whatsapp: string;
+  availableServices: string[]; // service IDs
+}
+
+export const cities: City[] = [
+  {
+    name: 'Malang',
+    slug: 'malang',
+    image: '/images/cities/malang.jpg',
+    whatsapp: '6285888815745',
+    availableServices: ['daily-cleaning', 'garden', 'sofa-cleaning', 'fogging', 'vehicle-wash', 'salon-bathroom', 'home-laundry', 'paket-all-in', 'subscription'],
+  },
+  {
+    name: 'Surabaya',
+    slug: 'surabaya',
+    image: '/images/cities/surabaya.jpg',
+    whatsapp: '6285710021668',
+    availableServices: ['daily-cleaning', 'salon-bathroom', 'home-laundry', 'paket-all-in', 'subscription'],
+  },
+  {
+    name: 'Sidoarjo',
+    slug: 'sidoarjo',
+    image: '/images/cities/sidoarjo.jpg',
+    whatsapp: '6285710021668',
+    availableServices: ['daily-cleaning', 'garden', 'sofa-cleaning', 'fogging', 'vehicle-wash', 'salon-bathroom', 'home-laundry', 'paket-all-in', 'subscription'],
+  },
+  {
+    name: 'Jogja',
+    slug: 'jogja',
+    image: '/images/cities/jogja.jpg',
+    whatsapp: '6285710021668',
+    availableServices: ['daily-cleaning', 'garden', 'sofa-cleaning', 'fogging', 'vehicle-wash', 'salon-bathroom', 'home-laundry', 'paket-all-in', 'subscription'],
+  },
+  {
+    name: 'Solo',
+    slug: 'solo',
+    image: '/images/cities/solo.jpg',
+    whatsapp: '6285710021668',
+    availableServices: ['daily-cleaning', 'salon-bathroom', 'home-laundry', 'paket-all-in', 'subscription'],
+  },
+  {
+    name: 'Depok',
+    slug: 'depok',
+    image: '/images/cities/depok.jpg',
+    whatsapp: '6285710021668',
+    availableServices: ['daily-cleaning', 'salon-bathroom', 'home-laundry', 'paket-all-in', 'subscription'],
+  },
+  {
+    name: 'Bali',
+    slug: 'bali',
+    image: '/images/cities/bali.jpg',
+    whatsapp: '62816966778',
+    availableServices: ['daily-cleaning', 'garden', 'sofa-cleaning', 'fogging', 'vehicle-wash', 'salon-bathroom', 'home-laundry', 'paket-all-in', 'subscription'],
+  },
+  {
+    name: 'Purwokerto',
+    slug: 'purwokerto',
+    image: '/images/cities/purwokerto.jpg',
+    whatsapp: '6285710021668',
+    availableServices: ['daily-cleaning', 'garden', 'vehicle-wash', 'salon-bathroom', 'home-laundry', 'paket-all-in', 'subscription'],
+  },
 ];
 
 export const services = [
