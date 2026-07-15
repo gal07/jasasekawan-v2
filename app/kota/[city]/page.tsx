@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { FiMessageCircle, FiCheck, FiArrowLeft, FiExternalLink } from 'react-icons/fi';
+import { FiMessageCircle, FiCheck, FiArrowLeft, FiChevronDown, FiChevronUp } from 'react-icons/fi';
 import { FaWhatsapp } from 'react-icons/fa';
 import { notFound } from 'next/navigation';
 import { cities, services } from '@/lib/data';
@@ -25,9 +25,9 @@ export function generateMetadata({ params }: Props): Metadata {
   };
 }
 
-function encodeWAMessage(cityName: string, serviceName: string): string {
+function encodeWAMessage(cityName: string, packageName: string): string {
   return encodeURIComponent(
-    `Halo Sekawan ${cityName}, Saya tertarik dengan jasa ${serviceName} dan ingin tau info lebih lanjut.`
+    `Halo Sekawan ${cityName}, Saya tertarik dengan jasa ${packageName} dan ingin tau info lebih lanjut.`
   );
 }
 
@@ -42,7 +42,7 @@ export default function CityPage({ params }: Props) {
 
   return (
     <div className="pt-24 pb-16">
-      <div className="max-w-5xl mx-auto px-4 md:px-8">
+      <div className="max-w-4xl mx-auto px-4 md:px-8">
         {/* Back button */}
         <Link
           href="/"
@@ -69,33 +69,80 @@ export default function CityPage({ params }: Props) {
           </div>
         </ScrollReveal>
 
-        {/* Available services */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-12">
-          {cityServices.map((service, i) => (
-            <ScrollReveal key={service.id} delay={i * 80}>
-              <div className="p-5 rounded-2xl border border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900 hover:border-brand-gold/30 transition-all flex flex-col h-full">
-                <span className="text-3xl block mb-3">{service.icon}</span>
-                <h3 className="font-heading font-bold text-gray-900 dark:text-white mb-1">
-                  {service.title}
-                </h3>
-                <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">{service.sub}</p>
-                <div className="mt-auto flex flex-col gap-2 pt-2 border-t border-gray-100 dark:border-gray-800">
-                  <Link
-                    href={`/layanan#${service.id}`}
-                    className="text-brand-cyan text-sm font-medium hover:underline inline-flex items-center gap-1"
-                  >
-                    Lihat paket & harga <FiExternalLink className="w-3 h-3" />
-                  </Link>
-                  <a
-                    href={`https://wa.me/${waNumber}?text=${encodeWAMessage(city.name, service.title)}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-lg bg-green-500 hover:bg-green-600 text-white text-xs font-medium transition-colors"
-                  >
-                    <FaWhatsapp className="w-3 h-3" /> Booking via WhatsApp
-                  </a>
+        {/* Main CTA */}
+        <ScrollReveal delay={100}>
+          <div className="text-center mb-12">
+            <a
+              href={`https://wa.me/${waNumber}?text=${encodeWAMessage(city.name, 'anda')}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-green-500 text-white font-bold text-lg hover:bg-green-600 transition-all hover:-translate-y-0.5 shadow-xl shadow-green-500/20"
+            >
+              <FiMessageCircle className="w-5 h-5" /> Booking di {city.name} via WhatsApp
+            </a>
+          </div>
+        </ScrollReveal>
+
+        {/* Services with packages */}
+        <div className="space-y-6 mb-12">
+          {cityServices.map((service, sIdx) => (
+            <ScrollReveal key={service.id} delay={sIdx * 80}>
+              <details className="group rounded-2xl border border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900 overflow-hidden" open={sIdx === 0}>
+                <summary className="flex items-center gap-4 p-5 md:p-6 cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors list-none">
+                  <span className="text-3xl shrink-0">{service.icon}</span>
+                  <div className="flex-1 min-w-0">
+                    <h2 className="font-heading text-lg font-bold text-gray-900 dark:text-white">
+                      {service.title}
+                    </h2>
+                    <p className="text-sm text-gray-500 dark:text-gray-400">{service.sub}</p>
+                  </div>
+                  <div className="text-gray-400 group-open:hidden">
+                    <FiChevronDown className="w-5 h-5" />
+                  </div>
+                  <div className="text-gray-400 hidden group-open:block">
+                    <FiChevronUp className="w-5 h-5" />
+                  </div>
+                </summary>
+
+                {/* Packages list */}
+                <div className="border-t border-gray-100 dark:border-gray-800 p-5 md:p-6">
+                  <div className="grid gap-3">
+                    {service.packages.map((pkg, pIdx) => (
+                      <div
+                        key={pIdx}
+                        className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-4 rounded-xl bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                      >
+                        <div className="flex-1 min-w-0">
+                          <h3 className="font-semibold text-gray-900 dark:text-white text-sm md:text-base">
+                            {pkg.name}
+                          </h3>
+                          <p className="text-brand-cyan font-bold text-sm mt-0.5">{pkg.price}</p>
+                          {pkg.details && pkg.details.length > 0 && (
+                            <ul className="mt-2 flex flex-wrap gap-x-4 gap-y-1">
+                              {pkg.details.slice(0, 4).map((d, di) => (
+                                <li key={di} className="flex items-center gap-1 text-xs text-gray-500 dark:text-gray-400">
+                                  <FiCheck className="w-3 h-3 text-brand-cyan shrink-0" /> {d}
+                                </li>
+                              ))}
+                              {pkg.details.length > 4 && (
+                                <li className="text-xs text-gray-400">+{pkg.details.length - 4} lainnya</li>
+                              )}
+                            </ul>
+                          )}
+                        </div>
+                        <a
+                          href={`https://wa.me/${waNumber}?text=${encodeWAMessage(city.name, pkg.name)}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-lg bg-green-500 hover:bg-green-600 text-white text-sm font-medium transition-colors shrink-0"
+                        >
+                          <FaWhatsapp className="w-4 h-4" /> Booking via WhatsApp
+                        </a>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              </div>
+              </details>
             </ScrollReveal>
           ))}
         </div>
@@ -124,7 +171,7 @@ export default function CityPage({ params }: Props) {
           </div>
         </ScrollReveal>
 
-        {/* CTA */}
+        {/* Bottom CTA */}
         <ScrollReveal delay={500}>
           <div className="text-center">
             <a
