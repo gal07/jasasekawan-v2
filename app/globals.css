@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --brand-gold: #dcbd64;
+    --brand-cyan: #26a8cb;
+    --brand-gold-dark: #c4a344;
+    --brand-cyan-dark: #1e8faf;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-white text-gray-900 font-body dark:bg-gray-950 dark:text-gray-100;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/70 backdrop-blur-xl border border-white/20 shadow-lg;
+  }
+  .glass-dark {
+    @apply bg-gray-900/70 backdrop-blur-xl border border-gray-700/20 shadow-lg;
+  }
+
+  .gradient-hero {
+    background: linear-gradient(135deg, #1e8faf 0%, #26a8cb 30%, #3cb8d8 60%, #dcbd64 100%);
+  }
+
+  .gradient-gold {
+    background: linear-gradient(135deg, #c4a344, #dcbd64, #e8d48b);
+  }
+
+  .gradient-card {
+    background: linear-gradient(180deg, rgba(220, 189, 100, 0.08) 0%, rgba(38, 168, 203, 0.04) 100%);
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #dcbd64, #26a8cb);
+  }
+
+  .section-padding {
+    @apply py-16 md:py-24 px-4 md:px-8;
+  }
+}
+
+@layer utilities {
+  .animate-delay-100 { animation-delay: 100ms; }
+  .animate-delay-200 { animation-delay: 200ms; }
+  .animate-delay-300 { animation-delay: 300ms; }
+  .animate-delay-400 { animation-delay: 400ms; }
+  .animate-delay-500 { animation-delay: 500ms; }
+}
