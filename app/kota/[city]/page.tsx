@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { FiMessageCircle, FiCheck, FiArrowLeft } from 'react-icons/fi';
+import { FiMessageCircle, FiCheck, FiArrowLeft, FiExternalLink } from 'react-icons/fi';
+import { FaWhatsapp } from 'react-icons/fa';
 import { notFound } from 'next/navigation';
 import { cities, services } from '@/lib/data';
 import ScrollReveal from '@/components/ScrollReveal';
@@ -24,7 +25,7 @@ export function generateMetadata({ params }: Props): Metadata {
   };
 }
 
-function encodeMessage(cityName: string, serviceName: string): string {
+function encodeWAMessage(cityName: string, serviceName: string): string {
   return encodeURIComponent(
     `Halo Sekawan ${cityName}, Saya tertarik dengan jasa ${serviceName} dan ingin tau info lebih lanjut.`
   );
@@ -72,18 +73,28 @@ export default function CityPage({ params }: Props) {
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-12">
           {cityServices.map((service, i) => (
             <ScrollReveal key={service.id} delay={i * 80}>
-              <div className="p-5 rounded-2xl border border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900 hover:border-brand-gold/30 transition-all">
+              <div className="p-5 rounded-2xl border border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900 hover:border-brand-gold/30 transition-all flex flex-col h-full">
                 <span className="text-3xl block mb-3">{service.icon}</span>
                 <h3 className="font-heading font-bold text-gray-900 dark:text-white mb-1">
                   {service.title}
                 </h3>
                 <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">{service.sub}</p>
-                <Link
-                  href={`/layanan#${service.id}`}
-                  className="text-brand-cyan text-sm font-medium hover:underline"
-                >
-                  Lihat paket & harga →
-                </Link>
+                <div className="mt-auto flex flex-col gap-2 pt-2 border-t border-gray-100 dark:border-gray-800">
+                  <Link
+                    href={`/layanan#${service.id}`}
+                    className="text-brand-cyan text-sm font-medium hover:underline inline-flex items-center gap-1"
+                  >
+                    Lihat paket & harga <FiExternalLink className="w-3 h-3" />
+                  </Link>
+                  <a
+                    href={`https://wa.me/${waNumber}?text=${encodeWAMessage(city.name, service.title)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-lg bg-green-500 hover:bg-green-600 text-white text-xs font-medium transition-colors"
+                  >
+                    <FaWhatsapp className="w-3 h-3" /> Booking via WhatsApp
+                  </a>
+                </div>
               </div>
             </ScrollReveal>
           ))}
@@ -117,7 +128,7 @@ export default function CityPage({ params }: Props) {
         <ScrollReveal delay={500}>
           <div className="text-center">
             <a
-              href={`https://wa.me/${waNumber}?text=${encodeMessage(city.name, 'anda')}`}
+              href={`https://wa.me/${waNumber}?text=${encodeWAMessage(city.name, 'anda')}`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-green-500 text-white font-bold text-lg hover:bg-green-600 transition-all hover:-translate-y-0.5 shadow-xl shadow-green-500/20"
