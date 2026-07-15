@@ -63,6 +63,36 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="id" suppressHydrationWarning>
       <head>
         <link rel="manifest" href="/manifest.json" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'LocalBusiness',
+              name: siteConfig.name,
+              description: siteConfig.description,
+              url: siteConfig.url,
+              telephone: siteConfig.whatsapp,
+              address: {
+                '@type': 'PostalAddress',
+                addressLocality: 'Malang',
+                addressRegion: 'Jawa Timur',
+                addressCountry: 'ID',
+              },
+              sameAs: [
+                siteConfig.social.facebook,
+                siteConfig.social.instagram,
+                siteConfig.social.tiktok,
+              ],
+              openingHoursSpecification: {
+                '@type': 'OpeningHoursSpecification',
+                dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+                opens: '08:00',
+                closes: '17:00',
+              },
+            }),
+          }}
+        />
         <meta name="theme-color" content="#26a8cb" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />

@@ -22,29 +22,4 @@ export default function HomePage() {
   );
 }
 
-// Structured data for homepage
-export const jsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'LocalBusiness',
-  name: siteConfig.name,
-  description: siteConfig.description,
-  url: siteConfig.url,
-  telephone: siteConfig.whatsapp,
-  address: {
-    '@type': 'PostalAddress',
-    addressLocality: 'Malang',
-    addressRegion: 'Jawa Timur',
-    addressCountry: 'ID',
-  },
-  sameAs: [
-    siteConfig.social.facebook,
-    siteConfig.social.instagram,
-    siteConfig.social.tiktok,
-  ],
-  openingHoursSpecification: {
-    '@type': 'OpeningHoursSpecification',
-    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
-    opens: '08:00',
-    closes: '17:00',
-  },
-};
+
