@@ -6,7 +6,7 @@ import { cities } from '@/lib/data';
 
 export default function CitiesSection() {
   return (
-    <section className="section-padding bg-gray-50 dark:bg-gray-900/50">
+    <section id="layanan" className="section-padding bg-gray-50 dark:bg-gray-900/50 scroll-mt-20">
       <div className="max-w-7xl mx-auto">
         <ScrollReveal>
           <div className="text-center mb-12 md:mb-16">

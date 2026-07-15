@@ -33,7 +33,7 @@ export default function Navbar() {
 
   const links = [
     { href: '/', label: 'Beranda' },
-    { href: '/layanan', label: 'Layanan' },
+    { href: '/#layanan', label: 'Layanan' },
     { href: '/cara-pemesanan', label: 'Cara Pesan' },
     { href: '/kontak', label: 'Kontak' },
   ];
