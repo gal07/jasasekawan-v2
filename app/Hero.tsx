@@ -3,7 +3,6 @@
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { FiArrowRight, FiMessageCircle } from 'react-icons/fi';
-import { siteConfig } from '@/lib/data';
 
 export default function Hero() {
   return (
@@ -31,16 +30,6 @@ export default function Hero() {
       />
 
       <div className="relative z-10 max-w-5xl mx-auto px-4 md:px-8 text-center pt-20">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: 'easeOut' }}
-        >
-          <span className="inline-block px-4 py-1.5 rounded-full bg-white/15 backdrop-blur-sm border border-white/10 text-white/90 text-sm font-medium mb-6">
-            🇮🇩 Di bawah naungan {siteConfig.company}
-          </span>
-        </motion.div>
-
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -71,7 +60,7 @@ export default function Hero() {
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
           <Link
-            href="/layanan"
+            href="/#layanan"
             className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-white text-brand-cyan font-semibold hover:bg-gray-50 transition-all hover:shadow-xl hover:shadow-white/20 hover:-translate-y-0.5"
           >
             Lihat Layanan <FiArrowRight className="w-4 h-4" />
