@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { FiMessageCircle, FiPhone, FiMail, FiMapPin, FiArrowRight } from 'react-icons/fi';
+import { FiPhone, FiMapPin, FiArrowRight } from 'react-icons/fi';
 import { FaWhatsapp } from 'react-icons/fa';
-import { siteConfig, cities } from '@/lib/data';
-import ScrollReveal from '@/components/ScrollReveal';
+import { siteConfig, cities } from '../../lib/data';
+import ScrollReveal from '../../components/ScrollReveal';
 
 export const metadata: Metadata = {
   title: 'Kontak',
@@ -69,17 +69,7 @@ export default function KontakPage() {
             </div>
           </ScrollReveal>
 
-          {/* Email */}
-          <ScrollReveal delay={200}>
-            <div className="p-6 rounded-2xl border border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900 text-center">
-              <div className="w-12 h-12 rounded-xl bg-brand-gold/10 flex items-center justify-center mx-auto mb-4">
-                <FiMail className="w-5 h-5 text-brand-gold" />
-              </div>
-              <h3 className="font-heading font-bold text-gray-900 dark:text-white mb-2">Email</h3>
-              <p className="text-gray-600 dark:text-gray-400 text-sm">Kirim pertanyaan via email</p>
-              <p className="text-brand-gold font-bold mt-2">info@jasasekawan.com</p>
-            </div>
-          </ScrollReveal>
+
 
           {/* Address */}
           <ScrollReveal delay={300}>
@@ -90,8 +80,8 @@ export default function KontakPage() {
               <h3 className="font-heading font-bold text-gray-900 dark:text-white mb-2">
                 Jam Operasional
               </h3>
-              <p className="text-gray-600 dark:text-gray-400 text-sm">Senin - Sabtu</p>
-              <p className="font-bold text-gray-900 dark:text-white mt-2">08:00 - 17:00 WIB</p>
+              <p className="text-gray-600 dark:text-gray-400 text-sm">Senin - Minggu</p>
+              <p className="font-bold text-gray-900 dark:text-white mt-2">08:00 - 20:00 WIB</p>
             </div>
           </ScrollReveal>
         </div>

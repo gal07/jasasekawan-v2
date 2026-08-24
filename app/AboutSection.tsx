@@ -1,6 +1,6 @@
-import ScrollReveal from '@/components/ScrollReveal';
+import ScrollReveal from '../components/ScrollReveal';
 import { FiCheckCircle } from 'react-icons/fi';
-import { siteConfig } from '@/lib/data';
+import { siteConfig } from '../lib/data';
 
 const highlights = [
   'Tim cleaner profesional & tersertifikasi',
@@ -68,7 +68,7 @@ export default function AboutSection() {
                 </div>
                 <div>
                   <p className="text-xs text-gray-500 dark:text-gray-400">Rating Pelanggan</p>
-                  <p className="font-bold text-gray-900 dark:text-white">4.9 / 5.0</p>
+                  <p className="font-bold text-gray-900 dark:text-white">5.0 / 5.0</p>
                 </div>
               </div>
             </div>
