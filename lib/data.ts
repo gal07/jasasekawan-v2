@@ -36,7 +36,7 @@ export const cities: City[] = [
     slug: 'surabaya',
     image: '/images/cities/surabaya.jpg',
     whatsapp: '6285710021668',
-    availableServices: ['daily-cleaning', 'salon-bathroom', 'home-laundry', 'paket-all-in', 'subscription'],
+    availableServices: ['daily-cleaning', 'sofa-cleaning', 'fogging', 'vehicle-wash', 'salon-bathroom', 'home-laundry', 'paket-all-in', 'subscription'],
   },
   {
     name: 'Sidoarjo',
@@ -53,13 +53,6 @@ export const cities: City[] = [
     availableServices: ['daily-cleaning', 'garden', 'sofa-cleaning', 'fogging', 'vehicle-wash', 'salon-bathroom', 'home-laundry', 'paket-all-in', 'subscription'],
   },
   {
-    name: 'Solo',
-    slug: 'solo',
-    image: '/images/cities/solo.jpg',
-    whatsapp: '6285710021668',
-    availableServices: ['daily-cleaning', 'salon-bathroom', 'home-laundry', 'paket-all-in', 'subscription'],
-  },
-  {
     name: 'Depok',
     slug: 'depok',
     image: '/images/cities/depok.jpg',
@@ -70,7 +63,7 @@ export const cities: City[] = [
     name: 'Bali',
     slug: 'bali',
     image: '/images/cities/bali.jpg',
-    whatsapp: '62816966778',
+    whatsapp: '6285888815745',
     availableServices: ['daily-cleaning', 'garden', 'sofa-cleaning', 'fogging', 'vehicle-wash', 'salon-bathroom', 'home-laundry', 'paket-all-in', 'subscription'],
   },
   {
@@ -78,7 +71,7 @@ export const cities: City[] = [
     slug: 'purwokerto',
     image: '/images/cities/purwokerto.jpg',
     whatsapp: '6285710021668',
-    availableServices: ['daily-cleaning', 'garden', 'vehicle-wash', 'salon-bathroom', 'home-laundry', 'paket-all-in', 'subscription'],
+    availableServices: ['daily-cleaning', 'garden', 'sofa-cleaning', 'vehicle-wash', 'salon-bathroom', 'home-laundry', 'paket-all-in', 'subscription'],
   },
 ];
 
