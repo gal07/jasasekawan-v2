@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import { FiMessageCircle, FiCheck } from 'react-icons/fi';
-import { services } from '@/lib/data';
+import { services, siteConfig } from '@/lib/data';
 import ScrollReveal from '@/components/ScrollReveal';
 
 export const metadata: Metadata = {
@@ -90,12 +89,16 @@ export default function LayananPage() {
                         </div>
                       )}
 
-                      <Link
-                        href="/kontak"
+                      <a
+                        href={`https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent(
+                          `Halo Jasa Sekawan, saya tertarik dengan paket ${pkg.name} dan ingin pesan.`
+                        )}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="mt-5 w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-brand-cyan text-white text-sm font-medium hover:bg-brand-cyan-dark transition-all"
                       >
                         <FiMessageCircle className="w-4 h-4" /> Pesan Sekarang
-                      </Link>
+                      </a>
                     </div>
                   ))}
                 </div>

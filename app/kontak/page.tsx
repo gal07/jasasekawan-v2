@@ -55,7 +55,10 @@ export default function KontakPage() {
 
           {/* Phone */}
           <ScrollReveal delay={100}>
-            <div className="p-6 rounded-2xl border border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900 text-center">
+            <a
+              href={`tel:+${siteConfig.whatsapp}`}
+              className="block p-6 rounded-2xl border border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900 text-center hover:border-brand-cyan/40 transition-all hover:-translate-y-0.5"
+            >
               <div className="w-12 h-12 rounded-xl bg-brand-cyan/10 flex items-center justify-center mx-auto mb-4">
                 <FiPhone className="w-5 h-5 text-brand-cyan" />
               </div>
@@ -66,7 +69,7 @@ export default function KontakPage() {
                 Hubungi kami di jam operasional
               </p>
               <p className="text-brand-cyan font-bold mt-2">{siteConfig.whatsapp}</p>
-            </div>
+            </a>
           </ScrollReveal>
 
 

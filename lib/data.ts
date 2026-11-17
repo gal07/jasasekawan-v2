@@ -11,7 +11,7 @@ export const siteConfig = {
     tiktok: 'https://tiktok.com/@jasasekawan',
     instagram: 'https://www.instagram.com/jasasekawan/',
   },
-  whatsapp: '6285710021668',
+  whatsapp: '6285888815745',
   company: 'PT. Sekawan Adhya Corporindo',
 };
 
@@ -35,28 +35,28 @@ export const cities: City[] = [
     name: 'Surabaya',
     slug: 'surabaya',
     image: '/images/cities/surabaya.jpg',
-    whatsapp: '6285710021668',
+    whatsapp: '6285888815745',
     availableServices: ['daily-cleaning', 'sofa-cleaning', 'fogging', 'vehicle-wash', 'salon-bathroom', 'home-laundry', 'paket-all-in', 'subscription'],
   },
   {
     name: 'Sidoarjo',
     slug: 'sidoarjo',
     image: '/images/cities/sidoarjo.jpg',
-    whatsapp: '6285710021668',
+    whatsapp: '6285888815745',
     availableServices: ['daily-cleaning', 'garden', 'sofa-cleaning', 'fogging', 'vehicle-wash', 'salon-bathroom', 'home-laundry', 'paket-all-in', 'subscription'],
   },
   {
     name: 'Jogja',
     slug: 'jogja',
     image: '/images/cities/jogja.jpg',
-    whatsapp: '6285710021668',
+    whatsapp: '6285888815745',
     availableServices: ['daily-cleaning', 'garden', 'sofa-cleaning', 'fogging', 'vehicle-wash', 'salon-bathroom', 'home-laundry', 'paket-all-in', 'subscription'],
   },
   {
     name: 'Depok',
     slug: 'depok',
     image: '/images/cities/depok.jpg',
-    whatsapp: '6285710021668',
+    whatsapp: '6285888815745',
     availableServices: ['daily-cleaning', 'salon-bathroom', 'home-laundry', 'paket-all-in', 'subscription'],
   },
   {
@@ -70,7 +70,7 @@ export const cities: City[] = [
     name: 'Purwokerto',
     slug: 'purwokerto',
     image: '/images/cities/purwokerto.jpg',
-    whatsapp: '6285710021668',
+    whatsapp: '6285888815745',
     availableServices: ['daily-cleaning', 'garden', 'sofa-cleaning', 'vehicle-wash', 'salon-bathroom', 'home-laundry', 'paket-all-in', 'subscription'],
   },
 ];
