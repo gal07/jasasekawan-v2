@@ -1,12 +1,9 @@
+import Link from 'next/link';
 import { FiMessageCircle } from 'react-icons/fi';
 import ScrollReveal from '@/components/ScrollReveal';
 import { siteConfig } from '@/lib/data';
 
 export default function CTASection() {
-  const waLink = `https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent(
-    'Halo Jasa Sekawan, saya ingin konsultasi dan booking layanan.'
-  )}`;
-
   return (
     <section className="relative py-20 md:py-28 overflow-hidden">
       <div className="absolute inset-0 gradient-hero" />
@@ -21,14 +18,12 @@ export default function CTASection() {
             Booking sekarang dan dapatkan layanan profesional terbaik untuk kebutuhan Anda.
             Konsultasi gratis!
           </p>
-          <a
-            href={waLink}
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/kontak"
             className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-white text-brand-cyan font-bold text-lg hover:bg-gray-50 transition-all hover:shadow-xl hover:shadow-white/20 hover:-translate-y-0.5"
           >
             <FiMessageCircle className="w-5 h-5" /> Booking via WhatsApp
-          </a>
+          </Link>
         </div>
       </ScrollReveal>
     </section>

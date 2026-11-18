@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
-import { FiMessageCircle } from 'react-icons/fi';
+import Link from 'next/link';
+import { FiArrowRight, FiMessageCircle } from 'react-icons/fi';
 import ScrollReveal from '@/components/ScrollReveal';
-import { orderingSteps, siteConfig } from '@/lib/data';
+import { orderingSteps } from '@/lib/data';
 
 export const metadata: Metadata = {
   title: 'Cara Pemesanan',
@@ -10,10 +11,6 @@ export const metadata: Metadata = {
 };
 
 export default function CaraPemesananPage() {
-  const waLink = `https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent(
-    'Halo Jasa Sekawan, saya ingin konsultasi dan memesan layanan.'
-  )}`;
-
   return (
     <div className="pt-24 pb-16">
       <div className="max-w-4xl mx-auto px-4 md:px-8">
@@ -67,14 +64,12 @@ export default function CaraPemesananPage() {
             <p className="text-gray-600 dark:text-gray-400 mb-6">
               Hubungi kami sekarang untuk konsultasi kebutuhan Anda. Gratis!
             </p>
-            <a
-              href={waLink}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/kontak"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-brand-cyan text-white font-bold hover:bg-brand-cyan-dark transition-all hover:-translate-y-0.5 shadow-lg shadow-brand-cyan/20"
             >
               <FiMessageCircle className="w-5 h-5" /> Booking via WhatsApp
-            </a>
+            </Link>
           </div>
         </ScrollReveal>
       </div>
